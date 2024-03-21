@@ -1,13 +1,16 @@
 <?php
 
-namespace MJankowski\Recruitment\CurrencyExchange\Domain\Service;
+declare(strict_types=1);
+
+namespace MJankowski\Recruitment\CurrencyExchange\Domain\Model;
 
 readonly class Fee
 {
-    private const FEE_PERCENTAGE = 0.01; // 1%
+    private const FEE_PERCENTAGE = 0.01;
 
     public static function calculateForAmount(float $amount): float
     {
-        return $amount * self::FEE_PERCENTAGE;
+        $fee = $amount * self::FEE_PERCENTAGE;
+        return ($fee < 1) ? 1.25 : $fee;
     }
 }
