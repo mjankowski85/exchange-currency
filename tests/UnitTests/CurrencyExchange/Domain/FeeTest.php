@@ -15,7 +15,7 @@ final class FeeTest extends TestCase
     public function testCalculateForAmount(float $amount, float $expectedFee): void
     {
         $fee = Fee::calculateForAmount($amount);
-        $this->assertEquals($expectedFee, $fee);
+        $this->assertSame($expectedFee, $fee);
     }
 
     public static function amountProvider(): array

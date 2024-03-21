@@ -17,7 +17,7 @@ final class MoneyTest extends TestCase
 
         $money = new Money($amount, $currency);
 
-        $this->assertEquals(123.46, $money->getAmount());
+        $this->assertSame(123.46, $money->getAmount());
         $this->assertSame($currency, $money->getCurrency());
     }
 

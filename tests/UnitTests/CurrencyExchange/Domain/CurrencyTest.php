@@ -14,6 +14,6 @@ final class CurrencyTest extends TestCase
         $code = 'EUR';
         $currency = new Currency($code);
 
-        $this->assertEquals($code, $currency->getCode());
+        $this->assertSame($code, $currency->getCode());
     }
 }

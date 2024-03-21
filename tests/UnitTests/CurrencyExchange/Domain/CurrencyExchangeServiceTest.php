@@ -34,8 +34,8 @@ class CurrencyExchangeServiceTest extends TestCase
         $moneyReceived = $this->service->sellMoney($moneyToSell, $this->gbp);
 
         $this->assertInstanceOf(Money::class, $moneyReceived);
-        $this->assertEquals($this->gbp, $moneyReceived->getCurrency());
-        $this->assertEquals(83.75, $moneyReceived->getAmount());
+        $this->assertSame($this->gbp, $moneyReceived->getCurrency());
+        $this->assertSame(83.75, $moneyReceived->getAmount());
     }
 
     public function testBuy100GbpForEur(): void
@@ -45,8 +45,8 @@ class CurrencyExchangeServiceTest extends TestCase
         $moneyToPay = $this->service->buyMoney($moneyToBuy, $this->eur);
 
         $this->assertInstanceOf(Money::class, $moneyToPay);
-        $this->assertEquals($this->eur, $moneyToPay->getCurrency());
-        $this->assertEquals(118.82, $moneyToPay->getAmount());
+        $this->assertSame($this->eur, $moneyToPay->getCurrency());
+        $this->assertSame(118.82, $moneyToPay->getAmount());
     }
 
     public function testSell100GbpForEur(): void
@@ -56,8 +56,8 @@ class CurrencyExchangeServiceTest extends TestCase
         $moneyReceived = $this->service->sellMoney($moneyToSell, $this->eur);
 
         $this->assertInstanceOf(Money::class, $moneyReceived);
-        $this->assertEquals($this->eur, $moneyReceived->getCurrency());
-        $this->assertEquals(115.83, $moneyReceived->getAmount());
+        $this->assertSame($this->eur, $moneyReceived->getCurrency());
+        $this->assertSame(115.83, $moneyReceived->getAmount());
     }
 
     public function testBuy100EurForGbp(): void
@@ -67,8 +67,8 @@ class CurrencyExchangeServiceTest extends TestCase
         $moneyToPay = $this->service->buyMoney($moneyToBuy, $this->gbp);
 
         $this->assertInstanceOf(Money::class, $moneyToPay);
-        $this->assertEquals($this->gbp, $moneyToPay->getCurrency());
-        $this->assertEquals(86.72, $moneyToPay->getAmount());
+        $this->assertSame($this->gbp, $moneyToPay->getCurrency());
+        $this->assertSame(86.72, $moneyToPay->getAmount());
     }
 
     public function testBuyMoneyCalculatesAmountCorrectly(): void
@@ -81,8 +81,8 @@ class CurrencyExchangeServiceTest extends TestCase
 
         $result = $service->buyMoney($moneyToBuy, $currencyToPay);
 
-        $this->assertEquals(101, $result->getAmount());
-        $this->assertEquals('GBP', $result->getCurrency()->getCode());
+        $this->assertSame(101.0, $result->getAmount());
+        $this->assertSame('GBP', $result->getCurrency()->getCode());
     }
 
     public function testSellMoneyCalculatesAmountCorrectly(): void
@@ -95,7 +95,7 @@ class CurrencyExchangeServiceTest extends TestCase
 
         $result = $service->sellMoney($moneyToSell, $currencyToGet);
 
-        $this->assertEquals(78.75, $result->getAmount());
-        $this->assertEquals('EUR', $result->getCurrency()->getCode());
+        $this->assertSame(78.75, $result->getAmount());
+        $this->assertSame('EUR', $result->getCurrency()->getCode());
     }
 }
