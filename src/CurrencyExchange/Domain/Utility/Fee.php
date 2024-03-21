@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MJankowski\Recruitment\CurrencyExchange\Domain\Model;
+namespace MJankowski\Recruitment\CurrencyExchange\Domain\Utility;
 
 readonly class Fee
 {

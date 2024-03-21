@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace MJankowski\Recruitment\Tests\UnitTests\CurrencyExchange\Domain;
 
 use PHPUnit\Framework\TestCase;
-use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Fee;
+use MJankowski\Recruitment\CurrencyExchange\Domain\Utility\Fee;
 
 final class FeeTest extends TestCase
 {

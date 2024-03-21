@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace MJankowski\Recruitment\CurrencyExchange\Domain\Service;
 
-use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Fee;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Money;
+use MJankowski\Recruitment\CurrencyExchange\Domain\Utility\Fee;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Currency;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Interface\CurrencyExchangeRateRepositoryInterface;
 
-class CurrencyExchangeService
+final readonly class CurrencyExchangeService
 {
     public function __construct(
         private CurrencyExchangeRateRepositoryInterface $exchangeRateRepository
