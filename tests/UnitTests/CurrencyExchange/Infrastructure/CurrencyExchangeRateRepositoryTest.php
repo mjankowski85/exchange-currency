@@ -6,6 +6,7 @@ namespace MJankowski\Recruitment\Tests\UnitTests\CurrencyExchange\Infrastructure
 
 use PHPUnit\Framework\TestCase;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Currency;
+use MJankowski\Recruitment\CurrencyExchange\Domain\Exception\UnsupportedCurrencyException;
 use MJankowski\Recruitment\CurrencyExchange\Infrastructure\Repository\CurrencyExchangeRateRepository;
 
 final class CurrencyExchangeRateRepositoryTest extends TestCase
@@ -29,11 +30,11 @@ final class CurrencyExchangeRateRepositoryTest extends TestCase
 
     public function testGetRateForNonExistingPairReturnsZero(): void
     {
+        $this->expectException(UnsupportedCurrencyException::class);
+
         $from = new Currency('USD');
         $to = new Currency('CAD');
 
-        $rate = $this->repository->getRateFor($from, $to);
-
-        $this->assertSame(0.0, $rate);
+        $this->repository->getRateFor($from, $to);
     }
 }
