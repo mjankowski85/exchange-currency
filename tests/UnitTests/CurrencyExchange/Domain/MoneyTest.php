@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace MJankowski\Recruitment\Tests\UnitTests\CurrencyExchange\Domain;
 
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Money;
 use MJankowski\Recruitment\CurrencyExchange\Domain\Model\Currency;
@@ -33,5 +34,12 @@ final class MoneyTest extends TestCase
 
         $this->assertSame(123.45, $money1->getAmount());
         $this->assertSame(123.46, $money2->getAmount());
+    }
+
+    public function testNegativeValueThrowsAnException(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new Money(-100, new Currency('EUR'));
     }
 }
