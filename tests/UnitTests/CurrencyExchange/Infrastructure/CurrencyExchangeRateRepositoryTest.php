@@ -29,7 +29,7 @@ final class CurrencyExchangeRateRepositoryTest extends TestCase
         $this->assertSame(0.85, $rate);
     }
 
-    #[DataProvider('currencyPairProvider')]
+    #[DataProvider('invalidCurrencyPairProvider')]
     public function testGetRateForUnsupportedCurrencyPairThrowsException(Currency $currency1, Currency $currency2): void
     {
         $this->expectException(UnsupportedCurrencyException::class);
@@ -37,7 +37,7 @@ final class CurrencyExchangeRateRepositoryTest extends TestCase
         $this->repository->getRateFor($currency1, $currency2);
     }
 
-    public static function currencyPairProvider(): array
+    public static function invalidCurrencyPairProvider(): array
     {
         return [
             'Both currencies are invalid' => [new Currency('USD'), new Currency('PLN')],
