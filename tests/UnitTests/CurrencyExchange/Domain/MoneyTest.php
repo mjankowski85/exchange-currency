@@ -36,10 +36,17 @@ final class MoneyTest extends TestCase
         $this->assertSame(123.46, $money2->getAmount());
     }
 
-    public function testNegativeOrZeroValueThrowsAnException(): void
+    public function testNegativeValueThrowsAnException(): void
     {
         $this->expectException(InvalidArgumentException::class);
 
         new Money(-100, new Currency('EUR'));
+    }
+
+    public function testZeroValueThrowsAnException(): void
+    {
+        $this->expectException(InvalidArgumentException::class);
+
+        new Money(0, new Currency('EUR'));
     }
 }

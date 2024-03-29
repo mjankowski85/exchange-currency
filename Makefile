@@ -38,8 +38,12 @@ phpstan:
 phpunit:
 	docker-compose exec php sh -c "vendor/bin/phpunit -c phpunit.xml --testdox"
 
+infection:
+	docker-compose exec php sh -c "~/.composer/vendor/bin/infection --threads=4 --show-mutations"
+
 test:
 	@make ecs
 	@make phpmd
 	@make phpstan
 	@make phpunit
+	@make infection
