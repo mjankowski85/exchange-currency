@@ -37,6 +37,9 @@ final class CurrencyExchangeRateRepositoryTest extends TestCase
         $this->repository->getRateFor($currency1, $currency2);
     }
 
+    /**
+     * @return array<string, array{Currency, Currency}>
+     */
     public static function invalidCurrencyPairProvider(): array
     {
         return [

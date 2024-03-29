@@ -17,6 +17,9 @@ final class FeeTest extends TestCase
         $this->assertSame($expectedFee, $fee);
     }
 
+    /**
+     * @return array<string, array{float, float}>
+     */
     public static function amountProvider(): array
     {
         return [

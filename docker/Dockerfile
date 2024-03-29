@@ -32,10 +32,5 @@ RUN apk --update --no-cache add autoconf linux-headers g++ make && \
   docker-php-ext-enable xdebug && \
   apk del --purge autoconf g++ make
 COPY docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini
-#potem się pobawię, problem z phpstan-pro
-#ENV PHPSTAN_PRO_WEB_PORT=11111
-#EXPOSE 11111
-#RUN mkdir /tmp/phpstan-fixer
-#RUN chown -R dev:dev /tmp/phpstan-fixer
 
 USER $USER_NAME

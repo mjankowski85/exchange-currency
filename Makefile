@@ -33,7 +33,7 @@ phpmd:
 	docker-compose exec php sh -c "vendor/bin/phpmd src text phpmd.xml"
 
 phpstan:
-	docker-compose exec php sh -c "vendor/bin/phpstan --memory-limit=256M analyse --fix -c phpstan.neon -l 9"
+	docker-compose exec php sh -c "vendor/bin/phpstan --memory-limit=256M analyse -c phpstan.neon -l 9"
 
 phpunit:
 	docker-compose exec php sh -c "vendor/bin/phpunit -c phpunit.xml --testdox"
@@ -41,5 +41,5 @@ phpunit:
 test:
 	@make ecs
 	@make phpmd
-#	@make phpstan
+	@make phpstan
 	@make phpunit

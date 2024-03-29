@@ -10,6 +10,9 @@ use MJankowski\Recruitment\CurrencyExchange\Domain\Interface\CurrencyExchangeRat
 
 class CurrencyExchangeRateRepository implements CurrencyExchangeRateRepositoryInterface
 {
+    /**
+     * @var array<string, float> Exchange rates between currencies.
+     */
     private array $exchangeRates = [
         'EURtoGBP' => 0.85,
         'GBPtoEUR' => 1.17,

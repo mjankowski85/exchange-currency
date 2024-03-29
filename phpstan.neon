@@ -1,11 +1,5 @@
 includes:
 parameters:
-    ignoreErrors:
-        -
-            messages:
-                - '#Unsafe usage of new static#'
-            paths:
-                - src/*/Domain/*.php
     inferPrivatePropertyTypeFromConstructor: true
     checkGenericClassInNonGenericObjectType: false
     excludePaths:
