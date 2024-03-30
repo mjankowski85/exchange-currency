@@ -6,7 +6,7 @@ namespace MJankowski\Recruitment\CurrencyExchange\Domain\Utility;
 
 readonly class Fee
 {
-    private const FEE_PERCENTAGE = 0.01;
+    private const float FEE_PERCENTAGE = 0.01;
 
     public static function calculateForAmount(float $amount): float
     {
